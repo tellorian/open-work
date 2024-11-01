@@ -1,0 +1,15 @@
+.blue-button {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 16px;
+    white-space: pre;
+    background-color: #1246ff;
+    border: 4px solid #3f69ff;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
