@@ -1,7 +1,7 @@
 .search-input {
     display: flex;
     align-items: center;
-    padding: 8px 16px;
+    padding: 12px 16px;
     background-color: #fafafa; /* Light background */
     border: 1px solid #eee; /* Subtle border */
     border-radius: 12px; /* Rounded corners */

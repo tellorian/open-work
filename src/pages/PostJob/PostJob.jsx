@@ -196,52 +196,57 @@ export default function PostJob() {
   return (
     <>
       <div className="form-containerDC form-post">
-        <BackButton to="/work" title="Create a Job"/>
-
-        <form onSubmit={handleSubmit}>
-          <div className="form-groupDC">
-            <label></label>
-            <input
-              type="text"
-              placeholder="Job Title"
-              value={jobTitle}
-              onChange={(e) => setJobTitle(e.target.value)}
-            />
-          </div>
-          <div className="form-groupDC">
-            <label></label>
-            <textarea
-              placeholder="Job Requirements"
-              value={jobDescription}
-              onChange={(e) => setJobDescription(e.target.value)}
-            ></textarea>
-          </div>
-          <div className="form-groupDC skill-box">
-            <SkillBox title='UX Design' />            
-            <SkillBox title='Webflow' />   
-          </div>
-          <div className="form-groupDC">
-            <ImageUpload />
-          </div>
-          <div className="form-groupDC amountDC">
-            <label></label>
-            <input
-              id="amountInput"
-              type="number"
-              step="0.01"
-              placeholder="Amount"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-            />
-          </div>
-          <div className="form-groupDC skill-dropdown">
-            <span>CHOOSE A SKILL ORACLE FOR DISPUTE REQOLUTION</span>
-            <DropDown label={SKILLOPTIONS[0]} options={SKILLOPTIONS}/>
-          </div>
-          <button type="submit" className="submit-buttonDC">
-            Post Job
-          </button>
-        </form>
+        <div className="form-header">
+          <BackButton to="/work" title="Create a Job"/>
+        </div>
+        <div className="form-body">
+          <form onSubmit={handleSubmit}style={{
+            marginTop: '12px'
+          }}>
+            <div className="form-groupDC">
+              <label></label>
+              <input
+                type="text"
+                placeholder="Job Title"
+                value={jobTitle}
+                onChange={(e) => setJobTitle(e.target.value)}
+              />
+            </div>
+            <div className="form-groupDC">
+              <label></label>
+              <textarea
+                placeholder="Job Requirements"
+                value={jobDescription}
+                onChange={(e) => setJobDescription(e.target.value)}
+              ></textarea>
+            </div>
+            <div className="form-groupDC skill-box">
+              <SkillBox title='UX Design' />            
+              <SkillBox title='Webflow' />   
+            </div>
+            <div className="form-groupDC">
+              <ImageUpload />
+            </div>
+            <div className="form-groupDC amountDC">
+              <label></label>
+              <input
+                id="amountInput"
+                type="number"
+                step="0.01"
+                placeholder="Amount"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+              />
+            </div>
+            <div className="form-groupDC skill-dropdown">
+              <span>CHOOSE A SKILL ORACLE FOR DISPUTE REQOLUTION</span>
+              <DropDown label={SKILLOPTIONS[0]} options={SKILLOPTIONS}/>
+            </div>
+            <button type="submit" className="submit-buttonDC">
+              Post Job
+            </button>
+          </form>
+        </div>
       </div>
     </>
   );

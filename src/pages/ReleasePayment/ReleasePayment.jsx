@@ -4,6 +4,7 @@ import Web3 from "web3";
 import L1ABI from "../../L1ABI.json";
 import JobContractABI from "../../JobContractABI.json";
 import "./ReleasePayment.css";
+import PaymentItem from "../../components/PaymentItem/PaymentItem";
 
 export default function ReleasePayment() {
   const { jobId } = useParams();
@@ -160,51 +161,52 @@ export default function ReleasePayment() {
 
  
   const handleReleasePayment = async () => {
-    if (window.ethereum) {
-      try {
+      location.pathname = '/project-complete'
+    // if (window.ethereum) {
+    //   try {
        
-        setLoadingT(true); // Start loader
+    //     setLoadingT(true); // Start loader
 
-        const web3 = new Web3(window.ethereum);
-        await window.ethereum.request({ method: "eth_requestAccounts" });
-        const accounts = await web3.eth.getAccounts();
-        const fromAddress = accounts[0];
+    //     const web3 = new Web3(window.ethereum);
+    //     await window.ethereum.request({ method: "eth_requestAccounts" });
+    //     const accounts = await web3.eth.getAccounts();
+    //     const fromAddress = accounts[0];
 
-        const jobContractAddress = "0xdEF4B440acB1B11FDb23AF24e099F6cAf3209a8d";
-        const jobContract = new web3.eth.Contract(
-          JobContractABI,
-          jobContractAddress
-        );
+    //     const jobContractAddress = "0xdEF4B440acB1B11FDb23AF24e099F6cAf3209a8d";
+    //     const jobContract = new web3.eth.Contract(
+    //       JobContractABI,
+    //       jobContractAddress
+    //     );
 
-        const amountInWei = web3.utils.toWei(releaseAmount, "ether");
+    //     const amountInWei = web3.utils.toWei(releaseAmount, "ether");
 
-        jobContract.methods
-          .releasePartialPayment(jobId, amountInWei)
-          .send({
-            from: fromAddress,
-            gasPrice: await web3.eth.getGasPrice(),
-          })
-          .on("receipt", function (receipt) {
-            console.log("Transaction successful:", receipt);
-            alert("Payment released successfully!");
-            navigate(-1);
-          })
-          .on("error", function (error) {
-            console.error("Error releasing payment:", error);
-            alert("Error releasing payment. Check the console for details.");
-          })
-          .finally(() => {
-            setLoadingT(false); // Stop loader
-          });
-      } catch (error) {
-        console.error("Error releasing payment:", error);
-        alert("Error releasing payment. Check the console for details.");
-        setLoadingT(false); // Stop loader on error
-      }
-    } else {
-      console.error("MetaMask not detected");
-      alert("MetaMask is not installed. Please install it to use this app.");
-    }
+    //     jobContract.methods
+    //       .releasePartialPayment(jobId, amountInWei)
+    //       .send({
+    //         from: fromAddress,
+    //         gasPrice: await web3.eth.getGasPrice(),
+    //       })
+    //       .on("receipt", function (receipt) {
+    //         console.log("Transaction successful:", receipt);
+    //         alert("Payment released successfully!");
+    //         navigate(-1);
+    //       })
+    //       .on("error", function (error) {
+    //         console.error("Error releasing payment:", error);
+    //         alert("Error releasing payment. Check the console for details.");
+    //       })
+    //       .finally(() => {
+    //         setLoadingT(false); // Stop loader
+    //       });
+    //   } catch (error) {
+    //     console.error("Error releasing payment:", error);
+    //     alert("Error releasing payment. Check the console for details.");
+    //     setLoadingT(false); // Stop loader on error
+    //   }
+    // } else {
+    //   console.error("MetaMask not detected");
+    //   alert("MetaMask is not installed. Please install it to use this app.");
+    // }
   };
 
   if (loadingT) {
@@ -250,65 +252,66 @@ export default function ReleasePayment() {
 
       <div className="release-payment-container">
         <div className="form-container-release">
-          <div className="heading-container-release">
-            <h1 id="rel-title">Release Payment</h1>
+          <div className="sectionTitle">
+            <span id="rel-title">Release Payment</span>
           </div>
-
-          <div className="job-body">
-            <div className="job-detail-sectionR">
-              <div className="job-detail-item">
-                <p>TOTAL AMOUNT PAID TO ESCROW</p>
-                <p id="fetchedAmounts">
-                  {job.totalEscrowAmount}{" "}
-                  <img src="/xdc.png" alt="USDC" className="usdc-iconJD" />
-                </p>
-              </div>
-              <div className="job-detail-item">
-                <p>CURRENT AMOUNT LOCKED</p>
-                <p id="fetchedAmounts">
-                  {formatAmount(job.amountLocked)}{" "}
-                  <img src="/xdc.png" alt="USDC" className="usdc-iconJD" />
-                </p>
-              </div>
-              <div className="job-detail-item">
-                <p>AMOUNT RELEASED</p>
-                <p id="fetchedAmounts">
-                  {job.amountReleased}{" "}
-                  <img src="/xdc.png" alt="USDC" className="usdc-iconJD" />
-                </p>
+          <div className="release-payment-body">
+            <div className="job-body">
+              <div className="job-detail-sectionR">
+                <div className="job-detail-item">
+                  <p>TOTAL AMOUNT PAID TO ESCROW</p>
+                  <p id="fetchedAmounts">
+                    {job.totalEscrowAmount}{" "}
+                    <img src="/xdc.png" alt="USDC" className="usdc-iconJD" />
+                  </p>
+                </div>
+                <div className="job-detail-item">
+                  <p>CURRENT AMOUNT LOCKED</p>
+                  <p id="fetchedAmounts">
+                    {formatAmount(job.amountLocked)}{" "}
+                    <img src="/xdc.png" alt="USDC" className="usdc-iconJD" />
+                  </p>
+                </div>
+                <div className="job-detail-item">
+                  <p>AMOUNT RELEASED</p>
+                  <p id="fetchedAmounts">
+                    {job.amountReleased}{" "}
+                    <img src="/xdc.png" alt="USDC" className="usdc-iconJD" />
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="form-group">
-            <label></label>
-            <div className="input-with-icon">
+            <div className="form-groupDC amountDC" style={{marginTop: '24px'}}>
               <input
+                id="amountInput"
                 type="number"
-                step="0.01"
+                step="1"
                 placeholder="Amount to Release"
                 value={releaseAmount}
                 onChange={(e) => setReleaseAmount(e.target.value)}
               />
-              <img src="/xdc.png" alt="USDC" className="usdc-icon" />
+              {/* <img src="/xdc.png" alt="USDC" className="usdc-icon" /> */}
             </div>
+            <div className="form-groupDC">
+              <label></label>
+              <textarea
+                placeholder="Add note"
+                value={note}
+                onChange={(e) => setNote(e.target.value)}
+              />
+            </div>
+            <button
+              type="button"
+              className="release-button"
+              onClick={handleReleasePayment}
+            >
+              Release {releaseAmount}
+              <img src="/xdc.png" alt="USDC" className="usdc-icon" />
+            </button>
           </div>
-          <div className="form-group">
-            <label></label>
-            <textarea
-              placeholder="Add note"
-              value={note}
-              onChange={(e) => setNote(e.target.value)}
-            />
-          </div>
-          <button
-            type="button"
-            className="release-button"
-            onClick={handleReleasePayment}
-          >
-            Release {releaseAmount}
-            <img src="/xdc.png" alt="USDC" className="usdc-icon" />
-          </button>
         </div>
+        <PaymentItem title="Payment 2" />
+        <PaymentItem title="Payment 1" />
       </div>
     </>
   );

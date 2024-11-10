@@ -6,11 +6,11 @@
 
 #buttonTop-home.visible-home {
     opacity: 1;
-    animation: slideInLeft-home 1s forwards;
+    animation: slideInTop-home 1s forwards;
 }
 
 #buttonTop-home:not(.visible-home) {
-    animation: slideOutLeft-home 1s forwards;
+    animation: slideOutTop-home 1s forwards;
 }
 
 #buttonOracle-home {

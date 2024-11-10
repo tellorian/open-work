@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Web3 from "web3";
 import L1ABI from "../../L1ABI.json"; // Import the L1 contract ABI
 import "./SingleJobDetails.css";
+import MenuItem from "../../components/MenuItem";
 
 
 export default function SingleJobDetails() {
@@ -218,7 +219,7 @@ export default function SingleJobDetails() {
       <div className="single-job-details">
         <div className="newTitle">
           <div className="titleTop">
-            <Link className="goBack" to="/view-jobs">
+            <Link className="goBack" to="/browse-jobs">
               <img className="goBackImage" src="/back.svg" alt="Back Button" />
             </Link>
             <div className="titleText">{job.title}</div>
@@ -241,6 +242,12 @@ export default function SingleJobDetails() {
               }
             />
           </div>
+          <div className="feeContent">
+              <span>Fees:</span>
+              <span>5</span>
+              <img src="/xdc.png" alt="" />
+              <img src="/warning.svg" alt="" />
+          </div>
         </div>
 
         <div className="radialMenu" id="radialMenu">
@@ -251,7 +258,7 @@ export default function SingleJobDetails() {
             className="buttonLeftInfo"
             style={{ opacity: hovered ? "0" : "1" }}
           >
-            <div className="amountInfo" id="amountInfoLeft">
+            <div className="amountInfo">
               {amountPaid} {/* Displaying the amount paid */}
               <img src="/xdc.png" alt="USDC Icon" className="usdcIcon" />
             </div>
@@ -279,7 +286,7 @@ export default function SingleJobDetails() {
               alt="Button Left"
               className="buttonImageS"
             />
-            <img src="/person.svg" alt="Person Icon" className="buttonIconPS" />
+            <img src="/user.png" alt="Person Icon" className="buttonIconPS" />
           </div>
 
           {/* Display Amount Received */}
@@ -287,7 +294,7 @@ export default function SingleJobDetails() {
             className="buttonRightInfo"
             style={{ opacity: hovered ? "0" : "1" }}
           >
-            <div className="amountInfo" id="amountInfoRight">
+            <div className="amountInfo">
               {formatAmount(amountReceived)}{" "}
               {/* Displaying the amount received */}
               <img src="/xdc.png" alt="USDC Icon" className="usdcIcon" />
@@ -316,12 +323,28 @@ export default function SingleJobDetails() {
               alt="Button Right"
               className="buttonImageS"
             />
-            <img src="/person.svg" alt="Person Icon" className="buttonIconPS" />
+            <img src="/user.png" alt="Person Icon" className="buttonIconPS" />
           </div>
           {/* Links with hover effect */}
           <Link
-            to={`/release-payment/${job.jobId}`}
+            to={`/job-deep-view/${job.jobId}`}
             id="buttonTopS"
+            className={`buttonContainerS ${hovered ? "visible-home" : ""}`}
+            style={{ display: buttonFlex2 ? "flex" : "none" }}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
+          >
+            <img
+              src="/radial-button.svg"
+              alt="Button Top"
+              className="buttonImageS"
+            />
+            <img src="/info.svg" alt="Pay Icon" className="buttonIconHover" />
+            <span className="buttonText">Job Details</span>
+          </Link>
+          <Link
+            to={`/release-payment/${job.jobId}`}
+            id="buttonBottomS"
             className={`buttonContainerS ${hovered ? "visible-home" : ""}`}
             style={{ display: buttonFlex2 ? "flex" : "none" }}
             onMouseEnter={() => setHovered(true)}
@@ -336,7 +359,7 @@ export default function SingleJobDetails() {
             <span className="buttonText">Pay Now</span>
           </Link>
           <Link
-            to={`/job-deep-view/${job.jobId}`}
+            to={`/job-update/${job.jobId}`}
             id="buttonBottomLeftS"
             className={`buttonContainerS ${hovered ? "visible-home" : ""}`}
             style={{ display: buttonFlex2 ? "flex" : "none" }}
@@ -348,11 +371,11 @@ export default function SingleJobDetails() {
               alt="Button Bottom Left"
               className="buttonImageS"
             />
-            <img src="/info.svg" alt="Info Icon" className="buttonIconHover" />
-            <span className="buttonText">Job Details</span>
+            <img src="/update.svg" alt="Info Icon" className="buttonIconHover" />
+            <span className="buttonText">Job Update</span>
           </Link>
           <Link
-            to={`/job-update/${job.jobId}`}
+            to={`/raise-dispute/${job.jobId}`}
             id="buttonBottomRightS"
             className={`buttonContainerS ${hovered ? "visible-home" : ""}`}
             style={{ display: buttonFlex2 ? "flex" : "none" }}
@@ -365,11 +388,11 @@ export default function SingleJobDetails() {
               className="buttonImageS"
             />
             <img
-              src="/update.svg"
-              alt="Update Icon"
+              src="/dispute.svg"
+              alt="Disoute Icon"
               className="buttonIconHover"
             />
-            <span className="buttonText">Job Update</span>
+            <span className="buttonText">Raise Dispute</span>
           </Link>
           <div
             id="core"

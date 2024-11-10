@@ -4,6 +4,36 @@ import Web3 from "web3";
 import L1ABI from "../../L1ABI.json";
 import "./JobUpdate.css";
 
+import JobItem from "../../components/JobItem/JobItem";
+
+const JOBITEMS = [
+  {
+      icon: 'user.png',
+      inform: 'Mollie submitted an application!',
+      devName: 'Mollie Hall',
+      time: 20,
+  },
+  {
+      icon: 'user.png',
+      inform: 'Jollie just paid you',
+      devName: 'Jollie Hall',
+      time: 20,
+      payAmount: 28.762
+  },
+  {
+      icon: 'user.png',
+      inform: 'Mollie submitted an application!',
+      devName: 'Mollie Hall',
+      time: 20,
+  },
+  {
+      icon: 'user.png',
+      inform: 'Mollie submitted an application!',
+      devName: 'Mollie Hall',
+      time: 20,
+  }
+]
+
 export default function JobUpdate() {
   const { jobId } = useParams();
   const [job, setJob] = useState(null);
@@ -217,42 +247,14 @@ export default function JobUpdate() {
           </div>
 
           <div className="job-update-content">
-            {updates.length > 0 ? (
-              updates.map((update, index) => (
-                <div key={index} className="job-update-card">
-                  <div className="job-update-info">
-                    <img
-                      src="/person.svg"
-                      alt="Person Icon"
-                      className="personIcon"
-                    />
-                    <p className="job-update-text">
-                      <strong>{formatWalletAddress(update.worker)}</strong>{" "}
-                      submitted work!
-                    </p>
-                    <img
-                      src="/down.svg"
-                      alt="Expand Icon"
-                      className="downIcon"
-                      onClick={() => toggleCardExpansion(index)}
-                    />
-                  </div>
-                  <p className="job-update-date">
-                    {new Date(update.date).toLocaleDateString()}
-                  </p>
-                  {expandedCard === index && (
-                    <div className="job-update-details">
-                      <p className="submission-title">SUBMISSION</p>
-                      <p className="submission-description">
-                        {update.jobUpdate}
-                      </p>
-                    </div>
-                  )}
-                </div>
-              ))
-            ) : (
-              <p>No updates given yet.</p>
-            )}
+            {
+                JOBITEMS.map((item, index) => (
+                  <>
+                      <JobItem key={index} icon={item.icon} inform={item.inform} devName={item.devName} time={item.time} payAmount={item.payAmount}/>
+                      {index != JOBITEMS.length-1 && (<span className="item-line"></span>)}
+                  </>
+                ))
+            }
           </div>
         </div>
       </div>

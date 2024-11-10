@@ -21,9 +21,9 @@
 
 #buttonBottom-home.visible-home {
     opacity: 1;
-    animation: slideInLeft-home 1s forwards;
+    animation: slideInBottom-home 1s forwards;
 }
 
 #buttonBottom-home:not(.visible-home) {
-    animation: slideOutLeft-home 1s forwards;
+    animation: slideOutBottom-home 1s forwards;
 }

@@ -1,0 +1,37 @@
+.raiseTitle {
+    width: 100%;
+}
+
+.raiseBody {
+    border: 2px solid #f7f7f7;
+    border-radius: 0px 0px 24px 24px;
+}
+
+.dispute-description {
+    margin-top: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-family: 'Satoshi';
+    font-size: 14px;
+    font-weight: 500;
+    color: #868686;
+    line-height: 20px;
+}
+
+.dispute-description img {
+    margin-top: 4px;
+}
+
+.dispute-skill {
+    color: black;
+    font-size: 14px;
+}
+
+.compensation {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 10px;
+    color: #868686;
+}

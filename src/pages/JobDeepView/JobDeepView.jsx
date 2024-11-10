@@ -3,6 +3,32 @@ import { useParams, Link } from "react-router-dom";
 import Web3 from "web3";
 import L1ABI from "../../L1ABI.json"; // Import the L1 contract ABI
 import "./JobDeepView.css";
+import SkillBox from "../../components/SkillBox/SkillBox";
+
+function FileUpload() {
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [preview, setPreview] = useState(null);
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setSelectedImage(file);
+    setPreview(URL.createObjectURL(file)); // For preview display
+  };
+
+  return (
+    <div style={{width: '100%'}}>
+      <label htmlFor="image">
+        <div className="form-fileUpload">
+          <img src="/upload.svg" alt="" />
+          <span>Click here to upload or drop files here</span>
+        </div>
+      </label>
+      <input id="image" type="file" accept="image/*" onChange={handleImageChange} style={{display:'none'}} />
+      {preview && <img src={preview} alt="Image preview" width="100" />}
+    </div>
+  );
+}
+
 
 export default function JobInfo() {
   const { jobId } = useParams();
@@ -150,35 +176,64 @@ export default function JobInfo() {
            </div>
 
           <div className="info-cardJ">
-            <h2 className="sectionTitle">Job Details</h2>
-            <div className="detail-row">
-              <span className="detail-label">FROM</span>
-              <span className="detail-value-address">
-                <img src="/person.svg" alt="JobGiver" className="Job" />
-                <p>{formatWalletAddress(job.employer)}</p>
-              </span>
-            </div>
-            <div className="detail-row">
-              <span className="detail-label">TO</span>
-              <span className="detail-value-address" style={{ height: "47px" }}>
-                <img src="/person.svg" alt="JobTaker" className="Job" />
-                {formatWalletAddress(job.taker)}
-              </span>
-            </div>
-            <div className="detail-row">
-              <span className="detail-label">COST</span>
-              <span className="detail-value" style={{ height: "47px" }}>
-                {job.escrowAmount}{" "}
-                <img src="/xdc.png" alt="Info" className="infoIcon" />
-              </span>
-            </div>
-            <div className="detail-row">
-              <span className="detail-label">DESCRIPTION</span>
-              <div className="detail-value description-value">
-                <p>Here's a list of things I need:</p>
-                <ul className="description-list">
-                  <p>{job.description}</p>
-                </ul>
+            <div className="sectionTitle">Job Details</div>
+            <div className="sectionBody">
+              <div className="detail-row">
+                <span className="detail-label">FROM</span>
+                <div className="detail-profile">
+                  <span className="detail-value-address">
+                    <img src="/user.png" alt="JobGiver" className="Job" />
+                    <p>{formatWalletAddress(job.employer)}</p>
+                  </span>
+                  <a href="" className="view-profile">
+                    <span>View Profile</span>
+                    <img src="/view_profile.svg" alt="" />
+                  </a>
+                </div>
+              </div>
+              <div className="detail-row">
+                <span className="detail-label">TO</span>
+                <div className="detail-profile">
+                  <span className="detail-value-address" style={{ height: "47px" }}>
+                    <img src="/user.png" alt="JobTaker" className="Job" />
+                    {formatWalletAddress(job.taker)}
+                  </span>
+                  <a href="" className="view-profile">
+                    <span>View Profile</span>
+                    <img src="/view_profile.svg" alt="" />
+                  </a>
+                </div>
+              </div>
+              <div className="detail-row">
+                <span className="detail-label">COST</span>
+                <span className="detail-value" style={{ height: "47px" }}>
+                  {/* {job.escrowAmount}{" "} */}
+                  762.14
+                  <img src="/xdc.png" alt="Info" className="infoIcon" />
+                </span>
+              </div>
+              <div className="detail-row">
+                <span className="detail-label">DESCRIPTION</span>
+                <div className="detail-value description-value">
+                  <p>Here's a list of things I need:</p>
+                  <ul className="description-list">
+                    <p>{job.description}</p>
+                  </ul>
+                </div>
+              </div>
+              <div className="category">
+                <span>CATEGORY</span>
+                <div className="category-box">
+                  <SkillBox title="UX Design" />
+                  <SkillBox title='+5'/>
+                </div>
+              </div>
+              <div className="category attachments">
+                <span>ATTACHMENTS</span>
+                <div className="upload-content">
+                  <FileUpload/>
+                  <FileUpload/>
+                </div>
               </div>
             </div>
           </div>

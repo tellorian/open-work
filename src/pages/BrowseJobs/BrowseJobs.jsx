@@ -128,7 +128,7 @@ export default function BrowseJobs() {
                     <img src="/xdc.png" alt="Budget" />
                 </div>,
                 <div className="view-detail">
-                    <DetailButton to={`/job-deep-view/${job.id}`} imgSrc="/view.svg" alt="detail"  />
+                    <DetailButton to={`/job-details/${job.id}`} imgSrc="/view.svg" alt="detail"  />
                 </div>
             ];
         });

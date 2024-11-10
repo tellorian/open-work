@@ -12,7 +12,6 @@ body {
   height: 100vh;
   margin: 0;
   padding-bottom: 100px;
-  
 }
 
 .headerS {
@@ -356,9 +355,18 @@ margin-left: -68px;
 opacity:0;
 }
 
+#buttonBottomS {
+top: calc(50% + 165px);
+left: 50%;
+z-index: 3;
+margin-top: -25px;
+margin-left: -68px;
+opacity:0;
+}
+
 #buttonBottomLeftS {
 left: calc(50% - 155px);
-top: calc(50% + 125px);
+top: calc(50% + 0px);
 transform: translate(-50%, -50%);
 z-index: 0;
 margin-top: -25px;
@@ -369,7 +377,7 @@ opacity:0;
 
 #buttonBottomRightS {
 left: calc(50% + 155px);
-top: calc(50% + 125px);
+top: calc(50% + 0px);
 transform: translate(-50%, -50%);
 z-index: 0;
 margin-top: -25px;
@@ -405,6 +413,13 @@ display: none;
   animation-delay:0.25s;
 }
 
+#buttonBottomS.visible-home {
+  z-index: 3;
+  
+  animation: slideInBottom-home 0.5s forwards;
+  animation-delay:0.25s;
+}
+
 
 #buttonBottomLeftS.visible-home {
    z-index: 3;
@@ -424,6 +439,10 @@ display: none;
 
 #buttonTopS:not(.visible-home) {
   animation: slideOutTop 0.75s forwards, hideAfterSlideOut 0s 0.75s forwards;
+}
+
+#buttonBottomS:not(.visible-home) {
+  animation: slideOutBottom-home 0.75s forwards, hideAfterSlideOut 0s 0.75s forwards;
 }
 
 @keyframes hideAfterSlideOut {
@@ -448,12 +467,16 @@ display: none;
   width: 54px;
   height: 54px;
   z-index: 3;
+  border: 1px solid #f7f7f7;
+  border-radius: 54px;
 }
 
 .buttonContainerS-primary .buttonIconPS {
   width: 54px;
   height: 54px;
   z-index: 3;
+    border: 1px solid #f7f7f7;
+  border-radius: 54px;
 }
 
 .coreContainer {
@@ -823,6 +846,17 @@ transform: translateX(15px);
 .titleBottom {
   display: flex;
   align-items: center;
+}
+
+.feeContent {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #868686;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .titleText {

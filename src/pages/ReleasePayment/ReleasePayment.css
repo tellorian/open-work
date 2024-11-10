@@ -8,26 +8,20 @@ body {
 
 .release-payment-container {
   width: 520px;
-  margin: 0 auto; /* Center the container */
+  margin: 0 auto;
+  margin-bottom: 65px;
 }
 
 .form-container-release {
-  height: auto;
-  margin-top: 30px;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  background-color: #fff;
-  border-radius: 24px;
-  border: 2px solid whitesmoke;
+  width: auto;
+  margin-top: 48px;
+  margin-bottom: 24px;
 }
 
-.heading-container-release {
-  display: block;
-  height: 88px;
-  width: 520px;
-  align-items: center;
-  margin-bottom: 30px;
-  border-bottom: solid 1px whitesmoke;
+.release-payment-body {
+  padding: 32px;
+  border: 2px solid #f7f7f7;
+  border-radius: 0px 0px 24px 24px;
 }
 
 .backButtonR {
@@ -103,7 +97,7 @@ body {
 }
 
 #rel-title{
-  margin-left: 32px;
+  /* margin-left: 32px; */
   padding-top: 31px;
   font-family: 'Satoshi', sans-serif;
   font-style: normal;
@@ -118,26 +112,25 @@ body {
 
 
 .job-detail-sectionR {
-  width: 462px;
   background-color: #f7f7f7;
-  margin-left: 21px;
-  margin-bottom: 20px;
   border-radius:12px;
-  padding: 16px 0px 16px 16px;
+  padding: 16px;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  gap: 8px;
 }
 
 #fetchedAmounts {
-  margin-right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .job-detail-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 0px 10px 0px;
 }
 
 .job-detail-item:last-child {
@@ -208,7 +201,7 @@ body {
 .form-group input,
 .form-group textarea {
   margin-left: 21px;
-  width: 456px;
+  width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 12px;
@@ -257,6 +250,7 @@ textarea::placeholder {
 }
 
 .release-button {
+  margin-top: 40px;
   display: flex;
   align-items: center;
   justify-content: center;

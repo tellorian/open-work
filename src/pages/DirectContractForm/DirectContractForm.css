@@ -35,11 +35,8 @@ img#connectButtonDC {
 }
 
 .form-containerDC {
-  max-width: 450px;
-  margin: 80px auto;
-  padding: 40px;
-  border: 2px solid whitesmoke;
-  border-radius: 24px;
+  max-width: 536px;
+  margin: 88px auto;
   font-family: 'Satoshi', sans-serif;
   background-color: white; /* Set container background color to white */
   
@@ -64,14 +61,13 @@ img#connectButtonDC {
 }
 
 #pDC2 {
-  font-family: 'Satoshi' sans-serif;
+  font-family: 'Satoshi';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 28px;
-   color: #868686;
-  letter-spacing: 0.02em;
-  margin-bottom: 30px;
+  color: #868686;
+  letter-spacing: 0.28px;
 }
 
 .form-groupDC {
@@ -88,7 +84,7 @@ img#connectButtonDC {
 .form-groupDC textarea,
 .skill-box {
   width: 100%;
-  padding: 10px;
+  padding: 12px 16px;
   border: 1px solid whitesmoke;
   border-radius: 10px;
   box-sizing: border-box;

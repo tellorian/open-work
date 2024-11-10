@@ -196,72 +196,76 @@ export default function DirectContractForm() {
   return (
     <>
       <div className="form-containerDC">
-        <BackButton to="/work" title="Create a Direct Contract"/>
-        <p id="pDC2">
-          Enter in a contract directly with someone you know here. This gives
-          access to OpenWork's dispute resolution and helps build profile
-          strength for both parties.
-        </p>
-        <form onSubmit={handleSubmit}>
-          <div className="form-groupDC">
-            <label></label>
-            <input
-              type="text"
-              placeholder="Job Title"
-              value={jobTitle}
-              onChange={(e) => setJobTitle(e.target.value)}
-            />
-          </div>
-          <div className="form-groupDC">
-            <label></label>
-            <textarea
-              placeholder="Job Requirements"
-              value={jobDescription}
-              onChange={(e) => setJobDescription(e.target.value)}
-            ></textarea>
-          </div>
-          <div className="form-groupDC skill-box">
-            <SkillBox title='UX Design' />            
-            <SkillBox title='Webflow' />   
-          </div>
-          <div className="form-groupDC">
-            <ImageUpload />
-          </div>
-          <div className="form-groupDC ">
-            <label></label>
-            <input
-              type="text"
-              placeholder="Wallet Address of the Job Taker"
-              value={jobTaker}
-              onChange={(e) => setJobTaker(e.target.value)}
-            />
-          </div>
-          <div className="form-groupDC amountDC">
-            <label></label>
-            <input
-              id="amountInput"
-              type="number"
-              step="0.01"
-              placeholder="Amount"
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-            />
-          </div>
-          <div className="form-groupDC form-platformFee">
-            <div className="platform-fee">
-              <span>platform fees</span>
-              <img src="/fee.svg" alt="" />
+        <div className="form-header">
+          <BackButton to="/work" title="Create a Direct Contract"/>
+        </div>
+        <div className="form-body">
+          <span id="pDC2">
+            Enter in a contract directly with someone you know here. This gives
+            access to OpenWork's dispute resolution and helps build profile
+            strength for both parties.
+          </span>
+          <form onSubmit={handleSubmit}>
+            <div className="form-groupDC">
+              <label></label>
+              <input
+                type="text"
+                placeholder="Job Title"
+                value={jobTitle}
+                onChange={(e) => setJobTitle(e.target.value)}
+              />
             </div>
-            <span>5%</span>
-          </div>
-          <div className="form-groupDC skill-dropdown">
-            <span>CHOOSE A SKILL ORACLE FOR DISPUTE REQOLUTION</span>
-            <DropDown label={SKILLOPTIONS[0]} options={SKILLOPTIONS}/>
-          </div>
-          <button type="submit" className="submit-buttonDC">
-            Enter Contract
-          </button>
-        </form>
+            <div className="form-groupDC">
+              <label></label>
+              <textarea
+                placeholder="Job Requirements"
+                value={jobDescription}
+                onChange={(e) => setJobDescription(e.target.value)}
+              ></textarea>
+            </div>
+            <div className="form-groupDC skill-box" style={{padding: '20px'}}>
+              <SkillBox title='UX Design' />            
+              <SkillBox title='Webflow' />   
+            </div>
+            <div className="form-groupDC">
+              <ImageUpload />
+            </div>
+            <div className="form-groupDC ">
+              <label></label>
+              <input
+                type="text"
+                placeholder="Wallet Address of the Job Taker"
+                value={jobTaker}
+                onChange={(e) => setJobTaker(e.target.value)}
+              />
+            </div>
+            <div className="form-groupDC amountDC">
+              <label></label>
+              <input
+                id="amountInput"
+                type="number"
+                step="0.01"
+                placeholder="Amount"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+              />
+            </div>
+            <div className="form-groupDC form-platformFee">
+              <div className="platform-fee">
+                <span>platform fees</span>
+                <img src="/fee.svg" alt="" />
+              </div>
+              <span>5%</span>
+            </div>
+            <div className="form-groupDC skill-dropdown">
+              <span>CHOOSE A SKILL ORACLE FOR DISPUTE REQOLUTION</span>
+              <DropDown label={SKILLOPTIONS[0]} options={SKILLOPTIONS}/>
+            </div>
+            <button type="submit" className="submit-buttonDC">
+              Enter Contract
+            </button>
+          </form>
+        </div>
       </div>
     </>
   );

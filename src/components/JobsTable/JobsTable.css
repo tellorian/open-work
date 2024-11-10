@@ -23,7 +23,8 @@
   }
   
   .table {
-    width: 100%;
+    width: auto;
+    margin: 28px 24px;
     border-collapse: collapse; /* Remove borders between table cells */
     border: none;
   }
@@ -142,9 +143,11 @@
     background-color: transparent;
   }
   
-  .table th,
+  .table th {
+    padding: 12px 24px;
+  }
   .table td {
-    padding: 24px; /* Adjust padding as needed */
+    padding: 20px 24px; /* Adjust padding as needed */
     text-align: left;
     color: #868686; /* Set text color for table cells */
   }
@@ -320,7 +323,7 @@
   }
 
   .filter-section {
-    padding: 0px 25px;
+    padding: 0px 49px;
     display: flex;
     align-items: center;
     gap: 24px;

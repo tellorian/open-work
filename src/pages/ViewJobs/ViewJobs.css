@@ -52,7 +52,7 @@ img#connectButtonVJ {
   width: 100%;
   max-width: 918px;
   margin: 0 auto;
-  top: 60px;
+  top: 88px;
   border-bottom:none;
 }
 
@@ -97,8 +97,7 @@ img#connectButtonVJ {
 .table-section {
   height: auto;
   background-color: #ffffff;
-  padding: 10px;
-  padding-top:35px;
+  padding-top:32px;
   border-radius: 0px 0px 24px 24px;
   border: 2px solid whitesmoke;
 }
@@ -139,7 +138,7 @@ img#connectButtonVJ {
 }
 
 .table {
-  width: 100%;
+  width: auto;
   border-collapse: collapse; /* Remove borders between table cells */
   border: none;
 }

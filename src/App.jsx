@@ -20,11 +20,15 @@ import { useMobileDetection } from "./functions/useMobileDetection"; // Detects 
 import { formatWalletAddress } from "./functions/formatWalletAddress"; // Utility function to format wallet address
 import { useButtonHover } from "./functions/useButtonHover"; // Custom hook for handling button hover events
 import Work from "./pages/Work/Work";
+import Notification from "./pages/Notification/Notification";
 import Governance from "./pages/Governance/Governance";
 import BrowseJobs from "./pages/BrowseJobs/BrowseJobs";
 import BrowseTalent from "./pages/BrowseTalent/BrowseTalent";
 import PostJob from "./pages/PostJob/PostJob";
 import ConnectWallet from "./components/ConnectWallet/ConnectWallet";
+import ProjectComplete from "./pages/ProjectComplete/ProjectComplete";
+import ViewWork from "./pages/ViewWork/ViewWork";
+import RaiseDispute from "./pages/RaiseDispute/RaiseDispute";
 
 function MainPage() {
   // Using the useWalletConnection hook to handle wallet-related state and logic
@@ -179,6 +183,7 @@ export default function App() {
         <Routes>
           {/* Define routes for different pages */}
           <Route path="/" element={<MainPage />} />
+          <Route path="/notifications" element={<Notification/>} />
           <Route path="connect-wallet" element={<ConnectWallet/>} />
           <Route path="/work" element={<Work />} />
           <Route path="/governance" element={<Governance/>}/>
@@ -187,11 +192,14 @@ export default function App() {
           <Route path="/direct-contract" element={<DirectContractForm />} />
           <Route path="/post-job" element={<PostJob/>}/>
           <Route path="/view-jobs" element={<ViewJobs />} />
+          <Route path="view-work/:jobId" element={<ViewWork/>}/>
           <Route path="/job-details/:jobId" element={<SingleJobDetails />} />
           <Route path="/job-deep-view/:jobId" element={<JobDeepView />} />
           <Route path="/release-payment/:jobId" element={<ReleasePayment />} />{" "}
+          <Route path="/project-complete" element = {<ProjectComplete/>}/>
           <Route path="/job-update/:jobId" element={<JobUpdate />} />
           <Route path="/add-update/:jobId" element={<AddUpdate />} />
+          <Route path="/raise-dispute/:jobId" element={<RaiseDispute/>}/>
         </Routes>
       </BrowserRouter>
     </Layout>

@@ -19,7 +19,11 @@ const Header = () => {
   };
 
   const handleCLick = () => {
-    location.href = '/connect-wallet'
+    location.pathname = '/connect-wallet'
+  }
+
+  const goNotification = () => {
+    location.pathname = '/notifications'
   }
 
   return (
@@ -40,7 +44,7 @@ const Header = () => {
       <div className="right-header">
         {walletAddress ? (
           <>
-            <div className="alarm">
+            <div className="alarm" onClick={goNotification}>
               <img src="/alarm.svg" alt="Alarm" />
               <span className="alarm-badge">2</span>
             </div>

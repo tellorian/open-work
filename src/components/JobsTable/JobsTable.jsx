@@ -39,7 +39,9 @@ export default function JobsTable({ title, tableData, currentPage, totalPages, o
                             <DropDown label={options.title} options={options.items} />
                         ))
                     }   
-                    <BlueButton label="Post a Job" />
+                    <BlueButton label="Post a Job" onClick={() => {
+                        location.pathname = '/post-job'
+                    }}/>
                     </div>
                 </div>
                 <table className="table">

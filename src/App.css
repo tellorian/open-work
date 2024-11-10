@@ -124,6 +124,7 @@ img#connectButton-home {
   display: flex;
   align-items: center;
   position: relative;
+  cursor: pointer;
 }
 
 .alarm-badge {
@@ -179,7 +180,8 @@ img#connectButton-home {
 
 .dropdownMenu-home {
   z-index: 10;
-  width: 200px;
+  width: 218px;
+  padding: 12px 24px;
   position: absolute;
   top: 50px;
   right: 0px;
@@ -424,7 +426,7 @@ img.buttonIcon-home {
   }
   to {
     opacity: 0;
-    transform: translateX(13px);
+    transform: translateX(15px);
   }
 }
 
@@ -435,7 +437,51 @@ img.buttonIcon-home {
   }
   to {
     opacity: 0;
-    transform: translateX(-13px);
+    transform: translateX(-15px);
+  }
+}
+
+@keyframes slideInTop-home {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOutTop-home {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+}
+
+@keyframes slideInBottom-home {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOutBottom-home {
+  from {
+    opacity: 1;
+    transform: translateY(0)
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-15px);
   }
 }
 
@@ -491,4 +537,31 @@ input {
 
 textarea {
   outline: none;
+}
+
+.form-header {
+  width: 100%;
+  border: 2px solid #f7f7f7;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  padding: 28px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Satoshi';
+  color: #4D4D4D;
+}
+
+.form-body {
+  width: 100%;
+  padding: 20px 32px;
+  padding-bottom: 34px;
+  border: 2px solid #f7f7f7;
+  border-top: none;
+  border-radius: 0px 0px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
